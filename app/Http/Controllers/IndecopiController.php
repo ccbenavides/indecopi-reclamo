@@ -28,4 +28,22 @@ class IndecopiController extends Controller
 
     }
 
+    public function buscarEmpresa(Request $request){
+        if($request->tipo === "reclamo"){
+            $data = \App\Reclamo::find($request->codigo);
+        }else{
+            $data = \App\Sancion::find($request->codigo);
+            
+        }
+        
+        $reclamos = \App\Reclamo::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])->get();
+        $sanciones = \App\Sancion::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])->get();
+        
+        return view('pages/empresa')->with([
+            'data' => $data,
+            'reclamos' => $reclamos,
+            'sanciones' => $sanciones
+        ]);
+    }
+
 }

@@ -19,3 +19,5 @@ Route::get('/', 'IndecopiController@index');
 Route::get('/reclamos', 'IndecopiController@reclamos');
 Route::get('/sanciones', 'IndecopiController@sanciones');
 Route::get('/como-mejorar', 'IndecopiController@comoMejorar');
+
+Route::get('/buscar-empresa', 'IndecopiController@buscarEmpresa');
