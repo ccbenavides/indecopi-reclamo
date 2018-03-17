@@ -19,16 +19,13 @@
             <div class="item active">
             <img src="{{ asset('img/city_1.jpg') }}"  style="width:100%" alt="...">
             <div class="carousel-caption">
-                ...
             </div>
             </div>
             <div class="item">
             <img src="{{ asset('img/city_2.jpg') }}"  style="width:100%" alt="...">
             <div class="carousel-caption">
-                ...
             </div>
             </div>
-            ...
         </div>
         
         <!-- Controls -->
@@ -42,6 +39,59 @@
         </a>
         </div>
     </div>
+</section>
+
+<br />
+
+<section class="container-fluid">
+    <section class="container">
+        <div class="row">
+            <div class="text-center">
+                <h2>Consulta mi Reclamo o Denuncia </h2>
+            </div>
+        </div>
+    </section>
+</section>
+
+<br />
+
+<section class="container-fluid">
+    <section class="container">
+        <form action="{{ url('/buscar-empresa') }}" class="row well">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <select name="tipo" id="" class="form-control">
+                                <option value="reclamo" selected>RECLAMO</option>
+                                <option value="denuncia">DENUNCIA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input type="text" 
+                                    class="form-control" 
+                                    name="codigo"
+                                    placeholder="INGRESA ">
+                            
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <button class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            Buscar
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </section>
 </section>
 
 <br />
