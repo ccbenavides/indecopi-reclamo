@@ -7,23 +7,17 @@
 @endsection 
 
 @section('content')
-
-
     <div class=" row">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
-                <div class="carousel-inner">
-                 
-                  <div class="item active">
-                    <img src="http://placehold.it/900x200/f39c12/ffffff" alt="Second slide" width="100%">
-
-                    <div class="carousel-caption">
-                      <h2>Second Slide</h2>
-                    </div>
-                  </div>
-                 
-                </div>
-               
-              </div>
+       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="http://placehold.it/900x200/f39c12/ffffff" alt="Second slide" width="100%">
+            <div class="carousel-caption">
+              <h2>Second Slide</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 <div class="row">
@@ -174,7 +168,7 @@
 <div class="col-md-12">
 <div class="box box-warning">
         <div class="box-header with-border">
-          <h3 class="box-title">Sanciones</h3>
+          <h3 class="box-title">Reclamos</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
@@ -272,16 +266,11 @@
 </table>
 
 @endif 
-
-@endsection 
-
-
-        </div>
-    </div>
+</div>
+</div>
 </div>
 
-
-
+@endsection 
 
 @section('extra-js')
 <script>
@@ -304,9 +293,12 @@
     var map;
     function initMap() {
             @if($empresa['LATITUD'] != null  && $empresa['LONGITUD'] != null)
-            var cordenadas = new google.maps.LatLng("{{ $empresa['LATITUD'] }}","{{ $empresa['LONGITUD'] }}");
+            var coordenadas = new google.maps.LatLng("{{ $empresa['LATITUD']}}","{{ $empresa['LONGITUD'] }}");
+
+            var coord2 = new google.maps.LatLng("{{ $empresa['LATITUD'] + 0.00045}}","{{ $empresa['LONGITUD'] }}");
+
             map = new google.maps.Map(document.getElementById('map'), {
-                center: cordenadas,
+                center: coord2,
                 zoom: 17,
                 styles:[
                     {
@@ -315,28 +307,42 @@
                     }
                 ]
             });
+            
+            
+
+            var marker = new google.maps.Marker({
+              position: coordenadas,
+              map: map,
+              title: 'Hello World!'
+            });
+
+            marker.addListener('click', function() {
+                dale && dale();
+            })
+
             var coordInfoWindow = new google.maps.InfoWindow({
                 maxWidth: 150
             });
-            coordInfoWindow.setContent(createInfoWindowContent(cordenadas, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}"));
-            coordInfoWindow.setPosition(cordenadas);
-            coordInfoWindow.open(map);
+            function dale() {
+                coordInfoWindow.setContent(createInfoWindowContent(coord2, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}"));
+                coordInfoWindow.setPosition(coord2);
+                coordInfoWindow.open(map);
 
-            map.addListener('zoom_changed', function() {
-            coordInfoWindow.setContent(createInfoWindowContent(cordenadas, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}" ));
-            coordInfoWindow.open(map);
-            });     
+                map.addListener('zoom_changed', function() {
+                coordInfoWindow.setContent(createInfoWindowContent(coord2, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}" ));
+                coordInfoWindow.setPosition(coord2);
+                coordInfoWindow.open(map);
+                });     
+            }
+            dale && dale();
             @endif
-
-
-    
     }
     var TILE_SIZE = 256;
 
-    function createInfoWindowContent(cordenadas, zoom, name, address) {
+    function createInfoWindowContent(coordenadas, zoom, name, address) {
         var scale = 1 << zoom;
 
-        var worldCoordinate = project(cordenadas);
+        var worldCoordinate = project(coordenadas);
 
         var pixelCoordinate = new google.maps.Point(
             Math.floor(worldCoordinate.x * scale),
@@ -361,18 +367,8 @@
             TILE_SIZE * (0.5 + latLng.lng() / 360),
             TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)));
     }
-
-
-
-
-
-
-
-
-
 </script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-Az8ha889FBwEJR3JlGIFaXs5sEANPU&callback=initMap"
-    async defer></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-Az8ha889FBwEJR3JlGIFaXs5sEANPU&callback=initMap" defer></script>
     
 
 </script> @endsection

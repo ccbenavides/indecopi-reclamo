@@ -2,45 +2,30 @@
 @extends('_layouts.app')
 
 @section('content')
-
-<section class="container-fluid">
-    <div class="container">
-
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-            <img src="{{ asset('img/city_1.jpg') }}"  style="width:100%" alt="...">
-            <div class="carousel-caption">
-            </div>
-            </div>
-            <div class="item">
-            <img src="{{ asset('img/city_2.jpg') }}"  style="width:100%" alt="...">
-            <div class="carousel-caption">
-            </div>
-            </div>
-        </div>
-        
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        </div>
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide container" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="{{ asset('img/city_1.jpg') }}" alt="First slide" style="width:100%">
     </div>
-</section>
-
+    <div class="item">
+      <img src="{{ asset('img/city_2.jpg') }}" alt="First slide" style="width:100%">
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!-- /.carousel -->
 <br />
 
 <section class="container-fluid">
@@ -56,45 +41,26 @@
 <br />
 
 <section class="container-fluid">
-    <section class="container">
-        <form action="{{ url('/buscar-empresa') }}" class="row well">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <select name="tipo" id="" class="form-control">
-                                <option value="reclamo" selected>RECLAMO</option>
-                                <option value="denuncia">DENUNCIA</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <input type="text" 
-                                    class="form-control" 
-                                    name="codigo"
-                                    placeholder="INGRESA ">
-                            
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-center">
-                        <button class="btn btn-primary">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            Buscar
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
-        </form>
-    </section>
+    <form class="container form-inline well" action="{{ url('/buscar-empresa') }}">
+      <div class="form-group col-sm-3">
+        <select name="tipo" id="" class="form-control" style="width:100%">
+            <option value="reclamo" selected>RECLAMO</option>
+            <option value="denuncia">DENUNCIA</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-6">
+        <input type="text" 
+            class="form-control" 
+            name="codigo"
+            style="width:100%"
+            placeholder="INGRESA ">
+      </div>
+      <button class="btn btn-primary col-sm-3">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        Buscar
+      </button>
+    </form>
 </section>
-
-<br />
 
 <section class="container-fluid">
     <section class="container">
@@ -106,8 +72,6 @@
     </section>
 </section>
 
-
-
 <section class="container-fluid">
     <section class="container">
         <div class="row">
@@ -115,7 +79,7 @@
                 <a href="http://servicio.indecopi.gob.pe/appSACPresentaReclamo/pgw_index.seam"
                     target="_blank">
                     <img src="{{ asset('img/city_2.jpg') }}" class="img-responsive" alt="">
-                    <h5>Prenseta tu reclamo</h5>
+                    <h5>Presenta tu reclamo</h5>
                 </a>
             </div>
             <div class="col-sm-4">

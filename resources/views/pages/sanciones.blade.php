@@ -54,7 +54,7 @@
     },
     options: {
         legend: {
-            position: "right",
+            position: "bottom",
             display:true
         },
         title: {
