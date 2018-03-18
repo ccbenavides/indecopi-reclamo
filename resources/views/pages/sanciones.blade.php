@@ -7,7 +7,7 @@
                 <div class="carousel-inner">
                  
                   <div class="item active">
-                    <img src="{{ asset('/img/cabezera.jpg') }}" alt="Second slide" width="100%">
+                    <img src="{{ asset('/img/estadistica.jpg') }}" alt="Second slide" width="100%">
 
                    <!--  <div class="carousel-caption">
                       <h2>Second Slide</h2>

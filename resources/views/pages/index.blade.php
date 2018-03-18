@@ -2,6 +2,7 @@
 @extends('_layouts.app')
 
 @section('content')
+
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide row" data-ride="carousel">
   <!-- Indicators -->
@@ -11,10 +12,16 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="{{ asset('img/city_1.jpg') }}" alt="First slide" style="width:100%">
+      <img src="{{ asset('img/banner1.jpg') }}" alt="First slide" style="width:100%">
+        <div class="carousel-caption">
+            <h1>COMPRA SEGURO</h1>
+        </div>
     </div>
     <div class="item">
-      <img src="{{ asset('img/city_2.jpg') }}" alt="First slide" style="width:100%">
+        <img src="{{ asset('img/banner2.jpg') }}" alt="First slide" style="width:100%">
+        <div class="carousel-caption">    
+            <h1>MIRA A QUIÉN LE COMPRAS</h1>
+        </div>
     </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -60,30 +67,31 @@
         <h2 class="linea-title">Info Empresa</h2>
     </div>
 
-<section class="container-fluid panel-body">
-    
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="http://servicio.indecopi.gob.pe/appSACPresentaReclamo/pgw_index.seam"
-                    target="_blank">
-                    <img src="{{ asset('img/city_2.jpg') }}" class="img-responsive" alt="">
-                    <h5>Presenta tu reclamo</h5>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="{{ url('sanciones?anio=2017') }}">
-                    <img src="{{ asset('img/city_2.jpg') }}" class="img-responsive" alt="">
-                    <h5>Las peores empresas</h5>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="{{ url('como-mejorar') }}">
-                    <img src="{{ asset('img/city_2.jpg') }}"  class="img-responsive"alt="">
-                    <h5>Sancionados</h5>
-                </a>
-            </div>
+<section class="panel-body texte-center" style="margin:0 auto;max-width:900px;">
+
+    <div class="row">
+        <div class="col-sm-4 panel-body">
+            
+            <a style="color:#444" href="http://servicio.indecopi.gob.pe/appSACPresentaReclamo/pgw_index.seam"
+                target="_blank">
+                <img src="{{ asset('img/buzon.jpg') }}" class="img-responsive" alt="">
+                <h4 class="text-center">Presenta tu reclamo</h4>
+            </a> 
         </div>
-    </section>
+        <div class="col-sm-4 panel-body">
+            <a style="color:#444" href="{{ url('sanciones?anio=2017') }}">
+                <img src="{{ asset('img/esta.jpg') }}" class="img-responsive" alt="">
+                <h4 class="text-center">Las peores empresas</h4>
+            </a> 
+        </div>
+        <div class="col-sm-4 panel-body">
+            <a style="color:#444" href="{{ url('mapa') }}">
+                <img src="{{ asset('img/mapa.jpg') }}"  class="img-responsive"alt="">
+                <h4 class="text-center" >Resultados de cada sede</h4>
+            </a> 
+        </div>
+    </div>
+</section>
 
 @endsection
 
