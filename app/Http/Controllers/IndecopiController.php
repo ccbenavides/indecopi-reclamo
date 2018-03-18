@@ -59,6 +59,9 @@ class IndecopiController extends Controller
         ]);
     }
 
+    public function mapa(){
+        return view('pages/mapa');
+    }
 
     public function quitar_tildes($cadena) {
         $no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","ñ","À","Ã","Ì","Ò","Ù","Ã™","Ã ","Ã¨","Ã¬","Ã²","Ã¹","ç","Ç","Ã¢","ê","Ã®","Ã´","Ã»","Ã‚","ÃŠ","ÃŽ","Ã”","Ã›","ü","Ã¶","Ã–","Ã¯","Ã¤","«","Ò","Ã","Ã„","Ã‹");
