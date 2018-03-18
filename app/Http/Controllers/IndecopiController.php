@@ -44,9 +44,9 @@ class IndecopiController extends Controller
         }
         
         $reclamos = \App\Reclamo::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])
-                        ->limit(30)->get();
+                        ->get();
         $sanciones = \App\Sancion::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])
-                        ->limit(30)->get();
+                        ->get();
 
 
         $empresa = \App\Empresa::where('RECURRENTE', $this->quitar_tildes(trim($data['PROVEEDOR (RAZÓN SOCIAL)'])) )->first();

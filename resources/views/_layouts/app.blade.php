@@ -15,24 +15,42 @@
         *{
             font-family: 'Lato', sans-serif;
         }
-        </style>
+
+    .linea-title {
+        padding-bottom: 20px;
+        position: relative;
+    }
+    .linea-title:after {
+        content: "";
+        width: 60px;
+        height: 2px;
+        position: absolute;
+        background: #fcbb17;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+</style>
     @yield('extra-css')
 </head>
-<body>
+<body class="skin-blue" style="background-color: #ecf0f5;">
 
-<div class="container-fluid" style="background:white;">
+<div class="container" style="background:white;">
     @yield('content')
-</div>
 
-<!-- FOOTER -->
-<div class="container-fluid footer" >
+    <!-- FOOTER -->
+<div class="container-fluid footer row" >
     <div class="container">
         <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right panel-body"><a href="#">Back to top</a></p>
         <p>&copy; 2018 Team LTS. &middot;</p>
         </footer>
     </div>
 </div>
+</div>
+
+
 
     @yield('jquery')
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

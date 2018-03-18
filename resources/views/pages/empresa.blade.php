@@ -11,16 +11,17 @@
        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
         <div class="carousel-inner">
           <div class="item active">
-            <img src="http://placehold.it/900x200/f39c12/ffffff" alt="Second slide" width="100%">
-            <div class="carousel-caption">
-              <h2>Second Slide</h2>
-            </div>
+            <img src="{{ asset('/img/cabezera.jpg') }}" alt="Second slide" width="100%">
+            
           </div>
         </div>
       </div>
     </div>
 
 <div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="linea-title">INFORMACIÓN DE EMPRESA</h2>
+    </div>
     <div class="col-md-6 panel-body">
         <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -49,17 +50,16 @@
     </div>
 
 </div>
-<div class="col-md-12">
-<div class="box box-warning" >
-        <div class="box-header with-border">
-          <h3 class="box-title">Denuncias</h3>
+<div class="col-md-12 text-center panel-body">
+        <h2 class="linea-title">HISTORIAL DE EMPRESA</h2>
+    </div>
+    <br />
+    <div class="row">
+<div class="col-md-12 ">
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+<div class="box box-warning" >
+        <div class="box-header with-border bg-yellow">
+          <h2 class="box-title ">Denuncias</h2>
         </div>
         <div class="box-body">
         @if(count($sanciones))
@@ -165,17 +165,10 @@
        
       </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 ">
 <div class="box box-warning">
-        <div class="box-header with-border">
-          <h3 class="box-title">Reclamos</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+        <div class="box-header with-border bg-yellow">
+          <h2 class="box-title ">Sanciones</h2>
         </div>
         <div class="box-body">
         @if(count($reclamos))
@@ -269,7 +262,7 @@
 </div>
 </div>
 </div>
-
+</div>
 @endsection 
 
 @section('extra-js')

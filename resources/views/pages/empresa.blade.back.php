@@ -4,24 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"> 
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css"> 
-<style>
 
-    .linea-title {
-        padding-bottom: 20px;
-        position: relative;
-    }
-    .linea-title:after {
-        content: "";
-        width: 60px;
-        height: 2px;
-        position: absolute;
-        background: #fcbb17;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-    }
-</style>
 @endsection 
 
 @section('content')
@@ -76,7 +59,12 @@
     </div>
 
 </div>
-<div class="col-md-12">
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="linea-title">INFORMACIÓN DE EMPRESA</h2>
+    </div>
+</div>
+<div class="row">
 <div class="box box-warning" >
         <div class="box-header with-border">
           <h3 class="box-title">Denuncias</h3>

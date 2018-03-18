@@ -2,14 +2,58 @@
 @extends('_layouts.app')
 
 @section('content')
-<div class="container-fluid header bg-yellow">
-  <p><strong>TOP SANCIONES A EMPRESAS PARA EL AÑO {{$anio}}</strong></p>
-</div>
-<div class="container-fluid pickyear">
+<div class=" row">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
+                <div class="carousel-inner">
+                 
+                  <div class="item active">
+                    <img src="{{ asset('/img/cabezera.jpg') }}" alt="Second slide" width="100%">
+
+                   <!--  <div class="carousel-caption">
+                      <h2>Second Slide</h2>
+                    </div> -->
+                  </div>
+                 
+                </div>
+               
+              </div>
+    </div>
+
+
+
   <div class="row">
+    <div class="col-md-12 text-center panel-body">
+        <h2 class="linea-title">TOP SANCIONES A EMPRESAS PARA EL AÑO {{$anio}}</h2>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+
+<div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Title</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          Start creating your amazing application!
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+
+
     <form action="/sanciones" id="miform" class="col-sm-3 col-sm-offset-3">
       <label for="">Selecciona el año</label>
-      <select name="anio" id="miselect" onchange="this.form.submit()">
+      <select name="anio" id="miselect" onchange="this.form.submit()" class="form-control">
         <option value="2017" @if($anio == "2017") selected="selected" @endif>2017</option>
         <option value="2016" @if($anio == "2016") selected="selected" @endif>2016</option>
         <option value="2015" @if($anio == "2015") selected="selected" @endif>2015</option>
@@ -20,7 +64,7 @@
       <a href="/" class="pull-right">volver a home</a>
     </div>
   </div>
-</div>
+
 
 <div class="container-fluid">
   <canvas id="canvas" class="row"></canvas>

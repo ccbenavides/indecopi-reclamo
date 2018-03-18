@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Carousel -->
-<div id="myCarousel" class="carousel slide container" data-ride="carousel">
+<div id="myCarousel" class="carousel slide row" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -28,20 +28,13 @@
 </div><!-- /.carousel -->
 <br />
 
-<section class="container-fluid">
-    <section class="container">
-        <div class="row">
-            <div class="text-center">
-                <h2>Consulta mi Reclamo o Denuncia </h2>
-            </div>
-        </div>
-    </section>
-</section>
-
+<div class="col-md-12 text-center panel-body">
+        <h2 class="linea-title">Consulta de mi Reclamo o Denuncia </h2>
+    </div>
 <br />
 
-<section class="container-fluid">
-    <form class="container form-inline well" action="{{ url('/buscar-empresa') }}">
+<section class="col-md-12 well">
+    <form class="form-inline" action="{{ url('/buscar-empresa') }}">
       <div class="form-group col-sm-3">
         <select name="tipo" id="" class="form-control" style="width:100%">
             <option value="reclamo" selected>RECLAMO</option>
@@ -55,25 +48,20 @@
             style="width:100%"
             placeholder="INGRESA ">
       </div>
-      <button class="btn btn-primary col-sm-3">
+      <button class="btn btn-warning col-sm-3">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         Buscar
       </button>
     </form>
 </section>
 
-<section class="container-fluid">
-    <section class="container">
-        <div class="row">
-            <div class="text-center">
-                <h2>Info Empresa</h2>
-            </div>
-        </div>
-    </section>
-</section>
 
-<section class="container-fluid">
-    <section class="container">
+<div class="col-md-12 text-center panel-body">
+        <h2 class="linea-title">Info Empresa</h2>
+    </div>
+
+<section class="container-fluid panel-body">
+    
         <div class="row">
             <div class="col-sm-4">
                 <a href="http://servicio.indecopi.gob.pe/appSACPresentaReclamo/pgw_index.seam"
@@ -96,7 +84,6 @@
             </div>
         </div>
     </section>
-</section>
 
 @endsection
 
