@@ -304,9 +304,13 @@
     var map;
     function initMap() {
             @if($empresa['LATITUD'] != null  && $empresa['LONGITUD'] != null)
-            var cordenadas = new google.maps.LatLng("{{ $empresa['LATITUD'] }}","{{ $empresa['LONGITUD'] }}");
+            var coordenadas = new google.maps.LatLng("{{ $empresa['LATITUD']}}","{{ $empresa['LONGITUD'] }}");
+            console.log('coordenadas: ', coordenadas);
+
+            var coord2 = new google.maps.LatLng("{{ $empresa['LATITUD'] + 0.0005}}","{{ $empresa['LONGITUD'] }}");
+
             map = new google.maps.Map(document.getElementById('map'), {
-                center: cordenadas,
+                center: coord2,
                 zoom: 17,
                 styles:[
                     {
@@ -315,28 +319,45 @@
                     }
                 ]
             });
+            
+            
+
+            var marker = new google.maps.Marker({
+              position: coordenadas,
+              map: map,
+              title: 'Hello World!'
+            });
+
+            marker.addListener('click', function() {
+                dale();
+            })
+
             var coordInfoWindow = new google.maps.InfoWindow({
                 maxWidth: 150
             });
-            coordInfoWindow.setContent(createInfoWindowContent(cordenadas, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}"));
-            coordInfoWindow.setPosition(cordenadas);
-            coordInfoWindow.open(map);
+            function dale() {
+                coordInfoWindow.setContent(createInfoWindowContent(coord2, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}"));
+                coordInfoWindow.setPosition(coord2);
+                coordInfoWindow.open(map);
 
-            map.addListener('zoom_changed', function() {
-            coordInfoWindow.setContent(createInfoWindowContent(cordenadas, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}" ));
-            coordInfoWindow.open(map);
-            });     
+                map.addListener('zoom_changed', function() {
+                coordInfoWindow.setContent(createInfoWindowContent(coord2, map.getZoom(), "{{ $empresa['RUTA IMAGEN LOTE MINIATURA'] }}" ));
+                coordInfoWindow.setPosition(coord2);
+                coordInfoWindow.open(map);
+                });     
+            }
             @endif
-
-
+            $(window).ready(function() {
+                dale();
+            });
     
     }
     var TILE_SIZE = 256;
 
-    function createInfoWindowContent(cordenadas, zoom, name, address) {
+    function createInfoWindowContent(coordenadas, zoom, name, address) {
         var scale = 1 << zoom;
 
-        var worldCoordinate = project(cordenadas);
+        var worldCoordinate = project(coordenadas);
 
         var pixelCoordinate = new google.maps.Point(
             Math.floor(worldCoordinate.x * scale),
