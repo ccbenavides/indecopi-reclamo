@@ -24,7 +24,7 @@ class IndecopiController extends Controller
         $res = Sancion::where('AÑO DE RESOLUCIÓN', $request->anio)
         ->orderBy('MONTO DE MULTA (UITs)', 'DESC')
         ->limit(10)->get();
-        // dd($res);
+        $res = array_reverse($res->toArray());
         return view('pages/sanciones')->with([
             'empresas' => $res,
             'anio' => $request->anio

@@ -83,7 +83,7 @@
                 </a>
             </div>
             <div class="col-sm-4">
-                <a href="{{ url('sanciones') }}">
+                <a href="{{ url('sanciones?anio=2017') }}">
                     <img src="{{ asset('img/city_2.jpg') }}" class="img-responsive" alt="">
                     <h5>Las peores empresas</h5>
                 </a>
