@@ -2,7 +2,7 @@
 @extends('_layouts.app')
 
 @section('content')
-<div class="container-fluid header">
+<div class="container-fluid header bg-yellow">
   <p><strong>TOP SANCIONES A EMPRESAS PARA EL AÑO {{$anio}}</strong></p>
 </div>
 <div class="container-fluid pickyear">
@@ -69,11 +69,11 @@
         scales: {
           xAxes: [{position: 'top'}],
           yAxes: [{
-            ticks: {reverse: true}
+            ticks: {reverse: false}
           }]
         },
         legend: {
-            position: "top",
+            position: "bottom",
             display:true
         },
         title: {
