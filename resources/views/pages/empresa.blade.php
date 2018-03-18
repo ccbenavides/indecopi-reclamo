@@ -7,23 +7,17 @@
 @endsection 
 
 @section('content')
-
-
     <div class=" row">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
-                <div class="carousel-inner">
-                 
-                  <div class="item active">
-                    <img src="http://placehold.it/900x200/f39c12/ffffff" alt="Second slide" width="100%">
-
-                    <div class="carousel-caption">
-                      <h2>Second Slide</h2>
-                    </div>
-                  </div>
-                 
-                </div>
-               
-              </div>
+       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="http://placehold.it/900x200/f39c12/ffffff" alt="Second slide" width="100%">
+            <div class="carousel-caption">
+              <h2>Second Slide</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 <div class="row">
@@ -174,7 +168,7 @@
 <div class="col-md-12">
 <div class="box box-warning">
         <div class="box-header with-border">
-          <h3 class="box-title">Sanciones</h3>
+          <h3 class="box-title">Reclamos</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
@@ -272,16 +266,11 @@
 </table>
 
 @endif 
-
-@endsection 
-
-
-        </div>
-    </div>
+</div>
+</div>
 </div>
 
-
-
+@endsection 
 
 @section('extra-js')
 <script>
@@ -305,9 +294,8 @@
     function initMap() {
             @if($empresa['LATITUD'] != null  && $empresa['LONGITUD'] != null)
             var coordenadas = new google.maps.LatLng("{{ $empresa['LATITUD']}}","{{ $empresa['LONGITUD'] }}");
-            console.log('coordenadas: ', coordenadas);
 
-            var coord2 = new google.maps.LatLng("{{ $empresa['LATITUD'] + 0.0005}}","{{ $empresa['LONGITUD'] }}");
+            var coord2 = new google.maps.LatLng("{{ $empresa['LATITUD'] + 0.00045}}","{{ $empresa['LONGITUD'] }}");
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: coord2,
@@ -329,7 +317,7 @@
             });
 
             marker.addListener('click', function() {
-                dale();
+                dale && dale();
             })
 
             var coordInfoWindow = new google.maps.InfoWindow({
@@ -346,11 +334,8 @@
                 coordInfoWindow.open(map);
                 });     
             }
+            dale && dale();
             @endif
-            $(window).ready(function() {
-                dale();
-            });
-    
     }
     var TILE_SIZE = 256;
 
@@ -382,18 +367,8 @@
             TILE_SIZE * (0.5 + latLng.lng() / 360),
             TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)));
     }
-
-
-
-
-
-
-
-
-
 </script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-Az8ha889FBwEJR3JlGIFaXs5sEANPU&callback=initMap"
-    async defer></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-Az8ha889FBwEJR3JlGIFaXs5sEANPU&callback=initMap" defer></script>
     
 
 </script> @endsection

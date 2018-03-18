@@ -40,7 +40,7 @@ class IndecopiController extends Controller
         if($request->tipo === "reclamo"){
             $data = \App\Reclamo::find($request->codigo);
         }else{
-            $data = \App\Sancion::find($request->codigo);            
+            $data = \App\Sancion::find($request->codigo);
         }
         
         $reclamos = \App\Reclamo::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])
@@ -48,7 +48,7 @@ class IndecopiController extends Controller
         $sanciones = \App\Sancion::where('DOCUMENTO IDENTIFICACIÓN (DNI/RUC)', $data['DOCUMENTO IDENTIFICACIÓN (DNI/RUC)'])
                         ->limit(30)->get();
 
-        
+
         $empresa = \App\Empresa::where('RECURRENTE', $this->quitar_tildes(trim($data['PROVEEDOR (RAZÓN SOCIAL)'])) )->first();
         
         return view('pages/empresa')->with([
