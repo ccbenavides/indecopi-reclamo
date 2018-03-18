@@ -59,8 +59,9 @@ class IndecopiController extends Controller
         ]);
     }
 
-    public function mapa(){
-        return view('pages/mapa');
+    public function mapaActual(){
+        
+        return view('pages.mapa-actual');
     }
 
     public function quitar_tildes($cadena) {

@@ -21,4 +21,4 @@ Route::get('/sanciones', 'IndecopiController@sanciones');
 Route::get('/como-mejorar', 'IndecopiController@comoMejorar');
 
 Route::get('/buscar-empresa', 'IndecopiController@buscarEmpresa');
-Route::get('/mapa', 'IndecopiController@mapa');
+Route::get('/mapa', 'IndecopiController@mapaActual');
