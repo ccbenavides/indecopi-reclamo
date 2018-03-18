@@ -141,3 +141,16 @@ body {
 .footer a:hover {
   color: #87cefa;
 }
+
+.header {
+  height: 100px;
+  background: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickyear {
+  padding: 15px 0;
+  background: whitesmoke;
+}

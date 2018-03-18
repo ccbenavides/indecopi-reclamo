@@ -2,18 +2,30 @@
 @extends('_layouts.app')
 
 @section('content')
-<form action="/sanciones" id="miform">
-  <label for="">Selecciona el año</label>
-  <select name="anio" id="miselect" onchange="this.form.submit()">
-    <option value="2017" @if($anio == "2017") selected="selected" @endif>2017</option>
-    <option value="2016" @if($anio == "2016") selected="selected" @endif>2016</option>
-    <option value="2015" @if($anio == "2015") selected="selected" @endif>2015</option>
-    <option value="2014" @if($anio == "2014") selected="selected" @endif>2014</option>
-  </select>
-</form>
-<div id="container" style="width: 75%;">
-    <canvas id="canvas"></canvas>
+<div class="container-fluid header bg-yellow">
+  <p><strong>TOP SANCIONES A EMPRESAS PARA EL AÑO {{$anio}}</strong></p>
 </div>
+<div class="container-fluid pickyear">
+  <div class="row">
+    <form action="/sanciones" id="miform" class="col-sm-3 col-sm-offset-3">
+      <label for="">Selecciona el año</label>
+      <select name="anio" id="miselect" onchange="this.form.submit()">
+        <option value="2017" @if($anio == "2017") selected="selected" @endif>2017</option>
+        <option value="2016" @if($anio == "2016") selected="selected" @endif>2016</option>
+        <option value="2015" @if($anio == "2015") selected="selected" @endif>2015</option>
+        <option value="2014" @if($anio == "2014") selected="selected" @endif>2014</option>
+      </select>
+    </form>
+    <div class="col-sm-3">
+      <a href="/" class="pull-right">volver a home</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <canvas id="canvas" class="row"></canvas>
+</div>
+
 @endsection
 
 
@@ -36,8 +48,8 @@
       COMPANIES.push({
         label: "{{ substr($empresa['PROVEEDOR (RAZÓN SOCIAL)'],0, 100) }}",
           data: ["{{ $empresa['MONTO DE MULTA (UITs)'] }}"],
-          backgroundColor: colors[9 - i],
-          borderColor: colors[9 - i++],
+          backgroundColor: colors[i],
+          borderColor: colors[i++],
           borderWidth: 1
       })
   @endforeach
@@ -53,12 +65,19 @@
         datasets: COMPANIES
     },
     options: {
+        responsive: true,
+        scales: {
+          xAxes: [{position: 'top'}],
+          yAxes: [{
+            ticks: {reverse: false}
+          }]
+        },
         legend: {
             position: "bottom",
             display:true
         },
         title: {
-          display: true,
+          display: false,
           text: "TOP 10 DE EMPRESAS MULTADAS DEL AÑO {{$anio}}" 
         }
     }

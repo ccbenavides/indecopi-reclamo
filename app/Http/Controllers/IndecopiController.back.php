@@ -40,7 +40,7 @@ class IndecopiController extends Controller
 
         
         $empresa = \App\Empresa::where('RECURRENTE', $this->quitar_tildes(trim($data['PROVEEDOR (RAZÓN SOCIAL)'])) )->first();
-        
+
         return view('pages/empresa')->with([
             'data' => $data,
             'reclamos' => $reclamos,
